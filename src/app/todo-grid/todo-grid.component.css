@@ -1,0 +1,23 @@
+#a-faire {
+    background-color: #2B7FFF;
+}
+
+#en-retard {
+    background-color: #C10007;
+}
+
+#urgent {
+    background-color: #EFB100;
+}
+
+.icon-text {
+    color: white; 
+}
+
+.header-color {
+    color: white; 
+}
+
+.text-start {
+    color: white;
+}

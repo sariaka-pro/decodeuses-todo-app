@@ -1,0 +1,60 @@
+<!--
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 m-4">
+        <mat-card id="a-faire">
+            <mat-card-content>
+                <div class="flex flex-row m-2 items-center">
+                    <div>
+                        <mat-icon class="icon-text">event</mat-icon>
+                    </div>
+                    <div class="flex flex-col m-4 text-start ">
+                        <mat-card-title class="header-color">À FAIRE AUJOURD'HUI</mat-card-title>
+                        <mat-card-subtitle class="text-start">3</mat-card-subtitle>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card id="en-retard">
+            <mat-card-content>
+                <div class="flex flex-row m-2 items-center">
+                    <div>
+                        <mat-icon class="icon-text">warning</mat-icon>
+                    </div>
+                    <div class="flex flex-col m-4 text-start ">
+                        <mat-card-title class="header-color">TÂCHES EN RETARD</mat-card-title>
+                        <mat-card-subtitle class="text-start">5</mat-card-subtitle>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+
+        <mat-card id="urgent">
+            <mat-card-content>
+                <div class="flex flex-row m-2 items-center">
+                    <div>
+                        <mat-icon class="icon-text">priority_high</mat-icon>
+                    </div>
+                    <div class="flex flex-col m-4 text-start ">
+                        <mat-card-title class="header-color">URGENTES</mat-card-title>
+                        <mat-card-subtitle class="text-start">9</mat-card-subtitle>
+                    </div>
+                </div>
+            </mat-card-content>
+        </mat-card>
+</div>
+-->
+
+<!--CORRECTION--> 
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 m-4">
+    @for(kpi of kpis; track kpi){
+        <mat-card id="block" class="text-white p-4"[ngClass]='kpi.color'>
+            <div class="flex items-center gap-x-4">
+                <mat-icon id="B1-col1">{{kpi.icon}}</mat-icon>
+            <div id="B1-col2">
+                <div id="titre" class="uppercase text-sm">{{kpi.title}}</div>
+                <div class="text-2xl font-bold">{{kpi.subtitle}}</div>
+            </div>
+            </div>
+        </mat-card>
+    }
+</div> 

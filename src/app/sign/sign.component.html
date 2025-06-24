@@ -1,0 +1,30 @@
+<div id="full-background-cover" class="flex h-full  bg-blue-200 items-center justify-center">
+<div id="centered-block" class="bg-white max-x-sm p-6 rounded-xl shadow-blue-50">
+<form [formGroup]="signForm" (ngSubmit)="onSubmit()">
+    <h2>Sign up</h2>
+    <div id="sign-up-container">
+        <div id="sign-up-password">
+            <mat-form-field>
+                <mat-label>Password</mat-label>
+                <input matInput formControlName="password" type="password" placeholder="password">
+            </mat-form-field>
+        </div>
+        <div id="sign-up-genre">
+            <mat-form-field>
+                <mat-label>Gender</mat-label>
+                <mat-select>
+                @for(genre of listGenre; track genre.value){
+                    <mat-option [value]="genre.value">{{genre.text}}</mat-option>
+                }
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div id="sign-up-submit" >
+        <button mat-flat-button type="submit" class="w-full">
+            Submit
+        </button>
+    </div>
+    </div>
+</form>
+</div>
+</div>
