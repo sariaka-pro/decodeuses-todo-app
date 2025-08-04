@@ -13,8 +13,8 @@ Asynchrone : cad le résultat de l'api ne vient pas tout de suite.
                 </div>
                 <div>
                     <mat-form-field appearance="fill" class="w-full">
-                        <mat-label>Priority</mat-label>
-                        <mat-select formControlName="priority">
+                        <mat-label>Priorities</mat-label>
+                        <mat-select formControlName="priorities">
                             @for (item of priorities; track item.number){
                                 <mat-option [value]="item.number">{{item.number}}</mat-option>
                             }
@@ -28,6 +28,34 @@ Asynchrone : cad le résultat de l'api ne vient pas tout de suite.
                         <mat-hint>MM/DD/YYYY</mat-hint>
                         <mat-datepicker-toggle matIconSuffix [for]="picker"></mat-datepicker-toggle>
                         <mat-datepicker #picker></mat-datepicker>
+                      </mat-form-field>
+                </div>
+                <div>
+                    <mat-form-field class="assigned-chip-list w-full" appearance="fill">
+                        <mat-label>Member</mat-label>
+                        <mat-chip-grid #chipGrid aria-label="Member">
+                          @for (contact of selectedContacts; track $index) {
+                            <mat-chip-row (removed)="remove(contact.id)">
+                              {{contact.prenom}}
+                              <button matChipRemove [attr.aria-label]="'remove ' + contact.prenom">
+                                <mat-icon>cancel</mat-icon>
+                              </button>
+                            </mat-chip-row>
+                          }
+                        </mat-chip-grid>
+                        <input
+                        name="CurrentMember"
+                        placeholder="Choose member..."
+                        #MemberInput
+                        [formControl]="currentMember"
+                        [matChipInputFor]="chipGrid"
+                        [matAutocomplete]="auto"
+                        (input)="onCurrentContactChange(MemberInput.value)"/>
+                        <mat-autocomplete #auto="matAutocomplete" (optionSelected)="selected($event)">
+                            @for (contact of filteredContacts; track contact) {
+                                <mat-option [value]="contact.id">{{contact.prenom}}</mat-option>
+                            }
+                        </mat-autocomplete>
                       </mat-form-field>
                 </div>
                 <div>

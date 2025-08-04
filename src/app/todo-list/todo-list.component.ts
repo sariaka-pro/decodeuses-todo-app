@@ -41,9 +41,10 @@ this.FormGroup = this.fb.group ({
       id: null, 
       title:formValue.title, 
       completed: true, 
-      priority: null, 
+      priorities: null, 
       dueDate: '',
-      textarea: null
+      textarea: null,
+      memberIds: []
     }; 
 
     this.todoservice.addTodo(todo).subscribe((data) =>

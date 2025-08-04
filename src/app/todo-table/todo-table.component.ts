@@ -14,14 +14,14 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 export class TodoTableComponent implements OnInit {
   FormGroup : FormGroup;
   todos : todo [] = [];
-  displayedColumns: string[] = ['id', 'title', 'priority', 'dueDate', 'completed', 'textarea'];
+  displayedColumns: string[] = ['id', 'title', 'priorities', 'dueDate', 'completed', 'textarea'];
 
 
 constructor(private fb: FormBuilder, private todoservice : TodoService) {
     this.FormGroup = this.fb.group ({
       id: [''],
       title: [''],
-      priority: [''],
+      priorities: [''],
       dueDate: [''],
       completed: [''],
       textarea: ['']

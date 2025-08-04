@@ -1,9 +1,9 @@
 import { importProvidersFrom, LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { authInterceptor } from './auth/authInterceptor';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,7 +19,7 @@ import { TodoListComponent } from './todo-list/todo-list.component';
 import {MatCardModule} from '@angular/material/card';
 import {HttpClientInMemoryWebApiModule} from 'angular-in-memory-web-api';
 import { InMemoryDataService } from './services/in-memory-data.service';
-import { provideHttpClient } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, provideHttpClient, withInterceptors } from '@angular/common/http';
 import { UtilisateurListComponent } from './utilisateur-list/utilisateur-list.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
@@ -31,7 +31,10 @@ import { MatFormFieldControl } from '@angular/material/form-field';
 import {MatTableModule} from '@angular/material/table';
 import { TodoTableComponent } from './todo-table/todo-table.component';
 import { TodoGridComponent } from './todo-grid/todo-grid.component';
-
+import { FormsModule } from '@angular/forms';
+import { MatChipsModule } from '@angular/material/chips';
+import { MatAutocompleteModule } from '@angular/material/autocomplete';
+import { LoginComponent } from './login/login.component';
 
 @NgModule({
   declarations: [
@@ -63,21 +66,27 @@ import { TodoGridComponent } from './todo-grid/todo-grid.component';
     MatSnackBarModule,
     RouterLink, 
     MatDatepickerModule,
-    MatTableModule
+    MatTableModule,
+    MatChipsModule,
+    MatAutocompleteModule,
   ],
+
   providers: [
-    /// injecter in-memory-data.service.ts 
-    // Comme il est @Injectable
-    provideHttpClient(), 
-    provideNativeDateAdapter(),
-    importProvidersFrom([
-      HttpClientInMemoryWebApiModule.forRoot(
-        InMemoryDataService,{delay: 200} /// pour mettre un temps de latence entre l'excécution et la récception de l'action. 
-      ) 
-    ]),
-    { provide: LOCALE_ID, useValue: 'fr'} /// permet de mettre la langue en FR. 
-  ],
-  bootstrap: [AppComponent]
+    provideHttpClient(withInterceptors([
+    authInterceptor
+  ])
+),
+provideNativeDateAdapter(),
+{ provide: LOCALE_ID, useValue: 'fr' },
+ provideHttpClient(),
+/*   j'injecte in-memory-data-service.ts car @Injectable dans "Root"
+importProvidersFrom([
+  HttpClientInMemoryWebApiModule.forRoot(
+    InMemoryDataService, {delay:200}
+  )
+])*/
+],
+bootstrap: [AppComponent]
   
 })
 export class AppModule { }

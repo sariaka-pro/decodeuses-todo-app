@@ -32,7 +32,7 @@ export class TodoGridComponent implements OnInit {
     this.todos = data;
     // Créer 3 variables de type nombre 
     let countUrgents = 0, countAfaire = 0, countRetard = 0;
-    let priority = null; 
+    let priorities = null; 
     let today = new Date(2025,5,10);
      
     // A faire aujourdhui= dueDate = aujourd'hui countAfaire = this.todos.filter(kpis => kpis.dueDate === new Date).length;
@@ -60,7 +60,7 @@ export class TodoGridComponent implements OnInit {
 
 
     /// taches urgentes : priority: 1 et dueDate = aujourd'hui 
-    countUrgents = this.todos.filter(kpis => kpis.priority == '1' && new Date (kpis.dueDate).toDateString() == today.toDateString()).length; /// toDateString = ???? 
+    countUrgents = this.todos.filter(kpis => kpis.priorities == '1' && new Date (kpis.dueDate).toDateString() == today.toDateString()).length; /// toDateString = ???? 
   
     this.kpis[2].subtitle = countUrgents;
    //  this.todos.filter

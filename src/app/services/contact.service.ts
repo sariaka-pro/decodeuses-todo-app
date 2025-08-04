@@ -1,20 +1,19 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Utilisateur } from '../models/utilisateur.model';
 import { environment } from '../../environments/environment';
 
 @Injectable({
   providedIn: 'root'
 })
-export class UtilisateurService {
-
-  private apiURL = environment.apiURL + 'api/utilisateurs'; 
+@Injectable({
+  providedIn: 'root'
+})
+export class ContactService {
+  private apiURL : string = environment.apiURL + '/api/action';
 
   constructor(private http: HttpClient) { }
 
-  getUtilisateurs(){
-    return this.http.get<Utilisateur[]>(this.apiURL);
+  getAll() {
+    return this.http.get<any>(this.apiURL);
   }
-
-  
 }

@@ -16,16 +16,21 @@ export class InMemoryDataService {
   constructor() { }
 
   createDb() {
+    /*
     const todos: todo[] = [
-      { id: 1, title: 'Learn Angular bloc 1', completed: false, priority: '1', dueDate: new Date().toISOString(), textarea: null},
-      { id: 2, title: 'Tache aujourdhui', completed: false, priority: null, dueDate: new Date().toISOString(), textarea: null},
-      { id: 3, title: 'Tache en retard', completed: false, priority: null, dueDate: new Date(2025,5,1).toISOString(), textarea: null},
-      { id: 4, title: 'Tache en retard', completed: false, priority: null, dueDate: new Date(2025,5,1).toISOString(), textarea: null},
-    ];
+      { id: 1, title: 'Learn Angular bloc 1', completed: false, priorities: null, dueDate: new Date().toISOString(), textarea: null},
+      { id: 2, title: 'Tache aujourdhui', completed: false, priorities: null, dueDate: new Date().toISOString(), textarea: null},
+      { id: 3, title: 'Tache en retard', completed: false, priorities: null, dueDate: new Date(2025,5,1).toISOString(), textarea: null},
+      { id: 4, title: 'Tache en retard', completed: false, priorities: null, dueDate: new Date(2025,5,1).toISOString(), textarea: null},
+    ];*/
     
+    const todos: todo[] = []; 
+
     const utilisateurs: Utilisateur[] = [
       { id: 1, nom: 'Dupont', prenom: 'Marie', sexe: 'femme' },
-      { id: 2, nom: 'Dupont', prenom: 'Jean', sexe: 'homme' }
+      { id: 2, nom: 'Dupont', prenom: 'Jean', sexe: 'homme' },
+      { id: 3, nom: 'Wilson', prenom: 'Lisa', sexe: 'femme' },
+      { id: 4, nom: 'Lee', prenom: 'Louis', sexe: 'homme' }
     ];
     
     return { todos, utilisateurs }; // ça va donner un lien endpoint api/todos 

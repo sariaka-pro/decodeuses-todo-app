@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { LoginComponent } from './components/login/login.component';
 import { ProfileComponent } from './profile/profile.component';
 import { SignComponent } from './sign/sign.component';
 import { TodoListComponent } from './todo-list/todo-list.component';
@@ -8,11 +7,9 @@ import { UtilisateurListComponent } from './utilisateur-list/utilisateur-list.co
 import { TodoDetailComponent } from './todo-list-details/todo-list-details.component';
 import { TodoTableComponent } from './todo-table/todo-table.component';
 import { TodoGridComponent } from './todo-grid/todo-grid.component';
+import { LoginComponent } from './login/login.component';
 
 const routes: Routes = [ // créer un élément et ajouter 
-{
-  path: 'login', component: LoginComponent 
-}, //tu peux grace à 'path: 'login' aller chercher le component et forcer à afficher le login. 
 
 {
   path: 'profile', component: ProfileComponent
@@ -40,6 +37,10 @@ const routes: Routes = [ // créer un élément et ajouter
 
 {
   path: 'todo-grid', component: TodoGridComponent
+},
+
+{
+  path:'login', component: LoginComponent
 }
 
 ]; 
