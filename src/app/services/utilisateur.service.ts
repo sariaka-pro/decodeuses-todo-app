@@ -8,7 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class UtilisateurService {
 
-  private apiURL = environment.apiURL + 'api/utilisateurs';
+  private apiURL = environment.apiURL + 'api/users'; // faire attetion et prendre l'url utilisateur du Back et non route Angular car il va chercher dans l'api du Back. 
 
   constructor(private http: HttpClient) { }
 
