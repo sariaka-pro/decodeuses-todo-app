@@ -1,0 +1,34 @@
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side" fixedInViewport>
+    <!--La partie non visible de l'utilisateur ++ le fixedInViewport affiche la sidenav sur l'entièreté de la page et non la sidebar uniquement -->
+    <mat-nav-list>
+      <a routerLink="/login" mat-list-item>Login</a>
+      <a routerLink="" mat-list-item>Home</a>
+      <a  routerLink="/sign" mat-list-item>Sign</a>
+      <a routerLink="/utilisateur" mat-list-item>Utilisateur</a>
+      <a routerLink="/todo-table" mat-list-item>Todo Table</a>
+      <a routerLink="/todo-grid" mat-list-item>Todo Grid</a>
+    </mat-nav-list>
+  </mat-sidenav>
+
+  <mat-sidenav-content> <!--La partie visible-->
+    <div class="flex flex-col h-screen">
+      <div id="div-toolbar">
+        <mat-toolbar>
+          <button mat-icon-button (click)="sidenav.toggle()">
+            <!--On ajoute .toggle à la fonction pour slider la navbar sur le côté + appeler la fonction au click-->
+            <!--mat-icon-button : c'est une directive. On lui dit: transforme ce bouton ou cet élément en directive. -->
+            <mat-icon>menu</mat-icon>
+          </button>
+          <span>
+            {{title}}
+            <!-- Template expression = On a appelé le titre depuis l'app.component pour éviter d'écrire le titre dans le HTML-->
+          </span>
+        </mat-toolbar>
+      </div>
+      <div id="div-router" class="flex-1">
+        <router-outlet />
+      </div>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

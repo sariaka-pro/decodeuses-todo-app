@@ -1,0 +1,6 @@
+:root {
+    --mat-sys-primary: light-dark(var(--color-blue-400), var(--color-blue-400));
+    --mat-sys-primary-container: var(--color-blue-300);
+    --mdc-icon-button-icon-color: var(--color-blue-300);
+    --mat-sys-corner-full: var(--color-blue-200);
+}

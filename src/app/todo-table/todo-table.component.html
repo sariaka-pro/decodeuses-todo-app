@@ -1,0 +1,47 @@
+<form [formGroup]="FormGroup">
+    <table mat-table [dataSource]="todos" class="mat-elevation-z8">
+        <ng-container matColumnDef="id">
+            <th mat-header-cell *matHeaderCellDef> No. </th>
+            <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+          </ng-container>
+        
+          <!-- title Column -->
+          <ng-container matColumnDef="title">
+            <th mat-header-cell *matHeaderCellDef> Title </th>
+            <td mat-cell *matCellDef="let element"> {{element.title}} </td>
+          </ng-container>
+        
+          <!-- priority Column -->
+          <ng-container matColumnDef="priorities">
+            <th mat-header-cell *matHeaderCellDef> Priorities </th>
+            <td mat-cell *matCellDef="let element"> {{element.priorities}} </td>
+          </ng-container>
+        
+          <!-- date Column -->
+          <ng-container matColumnDef="dueDate">
+            <th mat-header-cell *matHeaderCellDef> Due Date </th>
+            <td mat-cell *matCellDef="let element"> {{element.dueDate | date}} </td> <!--le "| date" = permet d'afficher en format normal la date dans le champ 'dueDate' il s'agit d'un PIPE-->
+          </ng-container> 
+    
+          <!-- completed Column -->
+          <ng-container matColumnDef="completed">
+            <th mat-header-cell *matHeaderCellDef> Completed </th>
+            <td mat-cell *matCellDef="let element"><input type="checkbox"></td>
+          </ng-container> 
+    
+           <!-- textarea Column -->
+          <ng-container matColumnDef="textarea">
+            <th mat-header-cell *matHeaderCellDef> Description </th>
+            <td mat-cell *matCellDef="let element"> {{element.textarea}} </td>
+          </ng-container> 
+
+          <!-- member Column -->
+          <ng-container matColumnDef="member">
+            <th mat-header-cell *matHeaderCellDef> Member </th>
+            <td mat-cell *matCellDef="let element"> {{element.member}} </td>
+          </ng-container> 
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
+</form>

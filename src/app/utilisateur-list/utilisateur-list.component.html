@@ -1,0 +1,25 @@
+<mat-card class="h-full flex flex-col">
+    <form [formGroup]="FormGroup">
+        <div id="utilisateur-search-bar" class="flex gap-4 m-6">
+            <mat-form-field appearance="outline" class="flex-1">
+                <input matInput formControlName="title" placeholder="Enter a new utilisator">
+            </mat-form-field>
+            <button mat-fab type="submit"(ngSubmit)="onSubmit()">
+                <mat-icon>add</mat-icon>
+            </button>
+        </div>
+        <div id="utilisateur-list">
+            <mat-list>
+                @for(utilisateur of utilisateurs; track utilisateur.id){
+                    <mat-list-item>
+                        <mat-checkbox> <!--à finir-->
+                            {{utilisateur.nom}},
+                            {{utilisateur.prenom}},
+                            {{utilisateur.sexe}}
+                        </mat-checkbox>
+                    </mat-list-item>
+                }
+            </mat-list>
+        </div>
+    </form>
+</mat-card>

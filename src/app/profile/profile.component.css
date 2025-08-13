@@ -1,0 +1,12 @@
+* {
+    margin: 0; 
+    padding: 0; 
+}
+
+h1 {
+    background-color:darkolivegreen;
+    color:beige; 
+    padding: 10px; 
+    margin: 15px; 
+    border-radius: 10px;
+}
