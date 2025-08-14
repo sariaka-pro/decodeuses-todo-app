@@ -8,6 +8,7 @@ import { environment } from '../../environments/environment';
 })
 export class AuthService {
   private apiUrl = environment.apiURL + '/auth/login';  /// On a fait la refactorisation sur les URL comprenant localhost 
+  private apiUrlSignup = environment.apiURL + '/auth/sign'; 
 
   constructor(private http: HttpClient) { }
 
